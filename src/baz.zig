@@ -1,9 +1,8 @@
 const std = @import("std");
-
-extern fn get() *struct{t:u64};
+const shared = @import("shared_extern.zig");
 
 pub export fn baz() void {
-    const t = get();
+    const t = shared.get();
     std.debug.print("Shared Value: {?}\n", .{t.t});
     std.debug.print("Ptr: {?}\n", .{@intFromPtr(t)});
 }

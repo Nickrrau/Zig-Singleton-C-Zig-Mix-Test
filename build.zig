@@ -28,6 +28,7 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
         .link_libc = true,
     });
+    main.addImport("shared", shared_lib.root_module);
 
     const exe = b.addExecutable(.{
         .name = "out",

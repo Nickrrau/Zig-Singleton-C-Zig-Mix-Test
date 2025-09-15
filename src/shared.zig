@@ -1,9 +1,5 @@
 const std = @import("std");
-
-const sharedData = struct {
-    t: u64,
-    flag:bool,
-};
+const sharedData = @import("shared_extern.zig").sharedData;
 
 var global_state: ?sharedData = null; 
 
